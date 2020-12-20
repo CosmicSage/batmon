@@ -14,19 +14,20 @@ int main(int argc, char *argv[]) {
         int BatteryPercentage = systemPower.BatteryLifePercent;
 
         // Alert User to Unplug device
-        if (BatteryPercentage >= 49) {
+        if (BatteryPercentage >= 26) {
           cout << "\nAC Status : " << static_cast<double>(systemPower.ACLineStatus)
           << "\nBattery Status : " << static_cast<double>(systemPower.BatteryFlag)
           << "\nBattery Life % : " << static_cast<double>(systemPower.BatteryLifePercent)
           << "\n" << systemPower.BatteryFullLifeTime
           << endl;
-          while (true) {
-            if (systemPower.ACLineStatus == 1) {
-              /* code */
-              cout << "\a";
-              break;
-              // return 0;
-            }
+          while (static_cast<int>(systemPower.ACLineStatus)) {
+            // if () {
+            systemPower = SYSTEM_POWER_STATUS();
+            cout << "Unplug\n" << static_cast<double>(systemPower.ACLineStatus) << "\n"
+            << static_cast<double>(systemPower.BatteryFlag) << "\n";
+            //   break;
+            //   // return 0;
+            // }
             Beep(523, 500);
           }
       }
