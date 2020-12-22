@@ -12,23 +12,33 @@ int main(int argc, char *argv[]) {
 
         // All System Normal thus get battery percentage
         int BatteryPercentage = systemPower.BatteryLifePercent;
+        int AC = systemPower.ACLineStatus;
 
         // Alert User to Unplug device
         if (BatteryPercentage >= 26) {
           cout << "\nAC Status : " << static_cast<double>(systemPower.ACLineStatus)
           << "\nBattery Status : " << static_cast<double>(systemPower.BatteryFlag)
-          << "\nBattery Life % : " << static_cast<double>(systemPower.BatteryLifePercent)
+          << "\nBattery Life % : " << BatteryPercentage
           << "\n" << systemPower.BatteryFullLifeTime
           << endl;
-          while (static_cast<int>(systemPower.ACLineStatus)) {
+          // while (!systemPower.ACLineStatus && x <= 10) {
+          // while (!systemPower.ACLineStatus) {
+          while (true) {
             // if () {
-            systemPower = SYSTEM_POWER_STATUS();
-            cout << "Unplug\n" << static_cast<double>(systemPower.ACLineStatus) << "\n"
-            << static_cast<double>(systemPower.BatteryFlag) << "\n";
+            SYSTEM_POWER_STATUS systemPower2;
+            printf("%i\n", static_cast<int>(systemPower2.ACLineStatus));
+            if (systemPower2.ACLineStatus != 0) {
+              printf("\n\n\n\n\n\n\nbreaking\n\n\n\n\n\n\n\n");
+              break;
+            }
+            printf("%i\n", systemPower.ACLineStatus);
+            // printf("%i\n", systemPower.ACLineStatus);
+            printf("%i\n", x);
+            x++;
             //   break;
             //   // return 0;
             // }
-            Beep(523, 500);
+            // Beep(523, 500);
           }
       }
 
@@ -37,7 +47,7 @@ int main(int argc, char *argv[]) {
         std::cout << "Im batman" << '\n';
       }
     } else return 1;
-      printf("%i\r", systemPower.BatteryLifePercent);
+      printf("%i\r", systemPower.ACLineStatus);
     }
 }
 // systemPower.BatteryLifePercent holds re
