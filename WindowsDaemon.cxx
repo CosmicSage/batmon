@@ -1,11 +1,14 @@
 #include <iostream>
 #include <windows.h>
 
+#include <chrono>
+#include <thread>
+
 using namespace std;
 
 int main(int argc, char *argv[]) {
     SYSTEM_POWER_STATUS systemPower;
-    int x = 1;
+    int x = 0;
     // GEt Status
     while (true) {
       if( GetSystemPowerStatus(&systemPower) ) {
@@ -36,11 +39,19 @@ int main(int argc, char *argv[]) {
 
         else {
           // Sleep
-          printf("%i\r", x);
-          x++;
+          Sleep(900 * 1000);
+          // try {
+          //   std::this_thread::sleep_for(std::chrono::milliseconds(x));
+          // }
+          // catch (std::exception& e) {
+          //   std::cerr << e.what() << '\n';
+          // }
+          // Print Iterations
+          printf("%i\n", x);
         }
+        x++;
     } else return 1;
-      printf("%i\r", systemPower.ACLineStatus);
+      // printf("%i\r", systemPower.ACLineStatus);
     }
 }
 // systemPower.BatteryLifePercent holds re
