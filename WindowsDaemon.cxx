@@ -28,18 +28,20 @@ int main(int argc, char *argv[]) {
 
         // Alert User to Unplug device
         if (BatteryPercentage >= 86 && AC == 1) {
-          Beep(523, 500);
+              Beep(175, 5000);
+              Sleep(160*10);
         }
 
         // Alert user to pluggin the device if battery low
         else if (BatteryPercentage <= 21 && AC == 0) {
           std::cout << "Im batman" << '\n' << BatteryPercentage << '\n';
-          Beep(1000, 500);
+          Beep(175, 5000);
+          Sleep(160*10);
         }
 
         else {
           // Sleep
-          Sleep(900 * 1000);
+          Sleep(60 * 1000);
           // try {
           //   std::this_thread::sleep_for(std::chrono::milliseconds(x));
           // }
@@ -47,7 +49,7 @@ int main(int argc, char *argv[]) {
           //   std::cerr << e.what() << '\n';
           // }
           // Print Iterations
-          printf("%i\n", x);
+          printf("%i\r", x);
         }
         x++;
     } else return 1;
