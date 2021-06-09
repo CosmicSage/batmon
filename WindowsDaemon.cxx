@@ -28,8 +28,8 @@ int main(int argc, char *argv[]) {
 
         // Alert User to Unplug device
         if (BatteryPercentage >= 86 && AC == 1) {
-              Beep(175, 5000);
-              Sleep(160*10);
+          Beep(175, 5000);
+          Sleep(160*10);
         }
 
         // Alert user to pluggin the device if battery low
