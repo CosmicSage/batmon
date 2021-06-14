@@ -3,10 +3,12 @@
 
 #include <chrono>
 #include <thread>
+void hide(void);
 
 using namespace std;
 
 int main(int argc, char *argv[]) {
+    hide();
     SYSTEM_POWER_STATUS systemPower;
     int x = 0;
     // GEt Status
@@ -57,7 +59,13 @@ int main(int argc, char *argv[]) {
     }
 }
 // systemPower.BatteryLifePercent holds re
+void hide(void) {
 
+  HWND stealth;
+  AllocConsole();
+  stealth = FindWindowA("ConsoleWindowClass", NULL);
+  ShowWindow(stealth, 0);
+}
 /*
 List of todos
 Import a C function to file
