@@ -1,9 +1,12 @@
 #include "message.h"
 #include <iostream>
 #include <windows.h>
+#include <thread>
+
+void playsound(char *soundfile);
 
 using namespace std;
-int messagex(void) {
+int alertx(void) {
   std::cout << "some variable" << IDCANCEL <<'\n';
   int msgboxID = MessageBox(NULL, "Something up with your charging", "BATMON", MB_ICONWARNING);
   return msgboxID;
