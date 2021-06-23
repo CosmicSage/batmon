@@ -9,7 +9,7 @@ int messagex(void) {
   return msgboxID;
 }
 
-int main(void) {
-  messagex();
-  return 0;
-}
+// int main(void) {
+//   messagex();
+//   return 0;
+// }

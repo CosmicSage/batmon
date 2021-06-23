@@ -1,6 +1,6 @@
 #include <iostream>
 #include <windows.h>
-
+#include "message.h"
 #include <chrono>
 #include <thread>
 void hide(void);
@@ -15,11 +15,18 @@ int main(int argc, char *argv[]) {
     while (true) {
       if( GetSystemPowerStatus(&systemPower) ) {
 
+        // if (!WinToastLib::isCompatible()) {
+        //   std::wcout << L"Error, your system is not supported" << std:endl;
+        // }
+
         // All System Normal thus get battery percentage
         int BatteryPercentage = systemPower.BatteryLifePercent;
         int AC = systemPower.ACLineStatus;
 
         if (BatteryPercentage >= 86) {
+          // if (!WinToastLib::isCompatible()) {
+          //   std::wcout << L"Error, your system is not supported" << std:endl;
+          // }
           cout << "\nAC Status : " << static_cast<double>(systemPower.ACLineStatus)
           << "\nBattery Status : " << static_cast<double>(systemPower.BatteryFlag)
           << "\nBattery Life % : " << BatteryPercentage
@@ -30,14 +37,16 @@ int main(int argc, char *argv[]) {
 
         // Alert User to Unplug device
         if (BatteryPercentage >= 86 && AC == 1) {
+          messagex();
           Beep(175, 5000);
           Sleep(160*10);
         }
 
         // Alert user to pluggin the device if battery low
-        else if (BatteryPercentage <= 21 && AC == 0) {
+        else if (BatteryPercentage <= 25 && AC == 0) {
           std::cout << "Im batman" << '\n' << BatteryPercentage << '\n';
-          Beep(175, 5000);
+          messagex();
+          Beep(175, 500);
           Sleep(160*10);
         }
 
