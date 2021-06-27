@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
           int xxx = MessageBeep(MB_ICONSTOP);
           Sleep(1000);
           printf("%i\n", xxx);
-          messagex();
+          alertx();
           Sleep(160*10);
         }
 
