@@ -2,18 +2,12 @@
 #include <iostream>
 #include <windows.h>
 #include <pthread.h>
-#include <_ptw32.h>
+
 using namespace std;
 
-void playsound(void *soundfile);
 int alertx(void);
 int messagex(void);
-
-void * __cdecl play(void *filename) {
-  printf("Im Thread\n");
-  return filename;
-}
-
+void * __cdecl playsound(void* filename);
 
 int main(void) {
   alertx();
@@ -25,7 +19,8 @@ int alertx(void) {
   // Now threads
   pthread_t thread1;
 
-  int f1 = pthread_create(&thread1, NULL, play, NULL);
+  int f1 = pthread_create(&thread1, NULL, playsound, (void *)"SOlwww");
+  pthread_join(thread1, NULL);
   printf("%i\n", f1);
   return 0;
 }
@@ -36,6 +31,8 @@ int messagex(void) {
   return msgboxID;
 }
 
-void playsound(void *soundfile) {
-  printf("%s\n", soundfile);
+void * __cdecl playsound(void* filename) {
+  printf("Im Thread: %s\n", (char *)filename);
+  // fflush(stdout);
+  return NULL;
 }
