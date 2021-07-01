@@ -8,7 +8,7 @@ void hide(void);
 using namespace std;
 
 int main(int argc, char *argv[]) {
-    // hide();
+    hide();
     SYSTEM_POWER_STATUS systemPower;
     int x = 0;
     // GEt Status
@@ -37,18 +37,13 @@ int main(int argc, char *argv[]) {
 
         // Alert User to Unplug device
         if (BatteryPercentage >= 86 && AC == 1) {
-          Beep(175, 5000);
-          Sleep(160*10);
+          alertx();
         }
 
         // Alert user to pluggin the device if battery low
         else if (BatteryPercentage <= 60 && AC == 0) {
           std::cout << "Im batman" << '\n' << BatteryPercentage << '\n';
-          int xxx = MessageBeep(MB_ICONSTOP);
-          Sleep(1000);
-          printf("%i\n", xxx);
           alertx();
-          Sleep(160*10);
         }
 
         else {
