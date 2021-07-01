@@ -9,12 +9,12 @@ int main(int argc, char const *argv[]) {
   //   Sleep(160*10);
   //   // Beep(523, 500);
   // }
-  int xyz[] = {MB_ICONASTERISK,MB_ICONINFORMATION,MB_ICONWARNING,MB_ICONHAND,MB_ICONINFORMATION,MB_ICONQUESTION};
-  for (size_t i = 0; i < 6; i++) {
-    std::cout << typeid(xyz[i]).name() << "\t" << xyz[i] << "\n";
-    int xxx = MessageBeep(xyz[i]);
-    Sleep(3000);
-    std::cout << xxx << '\n';
-  }
+  // int xyz[] = {MB_ICONASTERISK,MB_ICONINFORMATION,MB_ICONWARNING,MB_ICONHAND,MB_ICONINFORMATION,MB_ICONQUESTION};
+  // for (size_t i = 0; i < 6; i++) {
+  //   std::cout << typeid(xyz[i]).name() << "\t" << xyz[i] << "\n";
+  //   int xxx = MessageBeep(xyz[i]);
+  //   Sleep(3000);
+  //   std::cout << xxx << '\n';
+  PlaySound("media/DArkness_prototype.wav", NULL, 0);
   return 0;
 }

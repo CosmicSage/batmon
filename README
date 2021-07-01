@@ -4,14 +4,23 @@ Now there ain't no britany spears i could trust or find on gh and thus i made on
 
 == Some features That i want
 1. Make this program always listen to signal that it can recieve in some esoteric fashion
-   i) by esotric i mean jus some non obvious way to send/recieve sig 
+   i) by esotric i mean jus some non obvious way to send/recieve sig
 
 2. Optional UI to prac qt
 
-3. mAKE SOEM RBG lights flash(if the program has any)
+3. mAKE SOEM RBG lights flash(if the program can find any)
 
 4. More coming...
 
 
 
 The lingo here is just bad application of urbanthesaurus(sponsors of this project). Submit PR(s) to educate me if you are a GEnZ american
+
+I thought of including my unreleased techno track in the release files but while using it in dev I realized its tremendous promise which I don't want other people to take the credit for thus that's out for now.
+
+
+== Building ==
+
+So you should just download the release executable and run that. If you want alarm make a folder called 'media' where the executable is and place a wav file called 'evac.wav' in 'media' dir, else you would get some system specific sound which really suckks.
+
+And how to build from src files will come here soon....
