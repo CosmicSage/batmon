@@ -36,15 +36,16 @@ int main(int argc, char *argv[]) {
 
 
         // Alert User to Unplug device
-        if (BatteryPercentage >= 86 && AC == 1) {
+        if ((BatteryPercentage >= 82 && AC == 1) || (BatteryPercentage <= 27 && AC == 0)) {
+          std::cout << "Im batman" << '\n' << BatteryPercentage << '\n';
           alertx();
         }
 
         // Alert user to pluggin the device if battery low
-        else if (BatteryPercentage <= 60 && AC == 0) {
-          std::cout << "Im batman" << '\n' << BatteryPercentage << '\n';
-          alertx();
-        }
+        // else if  {
+        // std::cout << "Im batman" << '\n' << BatteryPercentage << '\n';
+        //   alertx();
+        // }
 
         else {
           // Sleep
