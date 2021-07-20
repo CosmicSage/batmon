@@ -36,9 +36,12 @@ int main(int argc, char *argv[]) {
 
 
         // Alert User to Unplug device
-        if ((BatteryPercentage >= 82 && AC == 1) || (BatteryPercentage <= 27 && AC == 0)) {
+        if ((BatteryPercentage >= 84 && AC == 1) || (BatteryPercentage <= 21 && AC == 0)) {
           std::cout << "Im batman" << '\n' << BatteryPercentage << '\n';
-          alertx();
+          int sound_off = alertx(x);
+          if (sound_off)
+            Sleep(5 * 1000);
+          x++;
         }
 
         // Alert user to pluggin the device if battery low
@@ -49,6 +52,8 @@ int main(int argc, char *argv[]) {
 
         else {
           // Sleep
+          // Iterations to zero
+          x = 0;
           Sleep(60 * 1000);
           // try {
           //   std::this_thread::sleep_for(std::chrono::milliseconds(x));
@@ -59,7 +64,6 @@ int main(int argc, char *argv[]) {
           // Print Iterations
           printf("%i\r", x);
         }
-        x++;
     } else return 1;
       // printf("%i\r", systemPower.ACLineStatus);
     }

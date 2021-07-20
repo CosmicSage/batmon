@@ -14,15 +14,21 @@ void * __cdecl playsound(void *filename);
 //   return 0;
 // }
 
-int alertx(void) {
+int alertx(int iterations) {
   // do some error handling
   // Now threads
   pthread_t thread1, thread2;
-
-  int f1 = pthread_create(&thread1, NULL, playsound, (void *)"media/evac.wav");
+  // Garbage negative number
+  int f1 = -123;
+  if (iterations > 2)
+    f1 = pthread_create(&thread1, NULL, playsound, (void *)"media/evac.wav");
   int f2 = pthread_create(&thread2, NULL, messagex, NULL);
   // messagex(NULL);
-  pthread_join(thread1, NULL);
+  // printf("%i\t%i\t%i\n", f1, iterations, 0);
+  if (f1 < 0)
+    return 1;
+  else
+    pthread_join(thread1, NULL);
   printf("%i\n", f1);
   return 0;
 }
