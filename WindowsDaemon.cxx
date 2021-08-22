@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
 
         // Alert User to Unplug device
-        if ((BatteryPercentage >= 84 && AC == 1) || (BatteryPercentage <= 21 && AC == 0)) {
+        if ((BatteryPercentage >= 86 && AC == 1) || (BatteryPercentage <= 20 && AC == 0)) {
           std::cout << "Im batman" << '\n' << BatteryPercentage << '\n';
           int sound_off = alertx(x);
           if (sound_off)
@@ -54,7 +54,8 @@ int main(int argc, char *argv[]) {
           // Sleep
           // Iterations to zero
           x = 0;
-          Sleep(60 * 1000);
+          // 60ms * 1000 * 5 = 300s
+          Sleep(60 * 1000 * 5);
           // try {
           //   std::this_thread::sleep_for(std::chrono::milliseconds(x));
           // }
