@@ -36,7 +36,8 @@ int main(int argc, char *argv[]) {
 
 
         // Alert User to Unplug device
-        if ((BatteryPercentage >= 86 && AC == 1) || (BatteryPercentage <= 20 && AC == 0)) {
+        // Allow infinty charge in new version
+        if ((BatteryPercentage >= 1000 && AC == 1) || (BatteryPercentage <= 25 && AC == 0)) {
           std::cout << "Im batman" << '\n' << BatteryPercentage << '\n';
           int sound_off = alertx(x);
           if (sound_off)
