@@ -22,7 +22,7 @@ int alertx(int iterations) {
   int *f1 = NULL;
   if (iterations > 2) {
     f1 = (int *)malloc(sizeof(int));
-    *f1 = pthread_create(&thread1, NULL, playsound, (void *)"media/evac.wav");
+    *f1 = pthread_create(&thread1, NULL, playsound, (void *)"media/evacc.wav");
   }
   int f2 = pthread_create(&thread2, NULL, messagex, NULL);
   // messagex(NULL);
