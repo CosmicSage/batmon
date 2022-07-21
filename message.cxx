@@ -22,9 +22,10 @@ int alertx(int iterations) {
   int *f1 = NULL;
   if (iterations > 2) {
     f1 = (int *)malloc(sizeof(int));
-    *f1 = pthread_create(&thread1, NULL, playsound, (void *)"media/evacc.wav");
+    *f1 = pthread_create(&thread1, NULL, playsound, (void *)"media/mau5_kick_54_Gm.wav");
+    Sleep(100);
   }
-  int f2 = pthread_create(&thread2, NULL, messagex, NULL);
+  // int f2 = pthread_create(&thread2, NULL, messagex, NULL);
   // messagex(NULL);
   // printf("%i\t%i\t%i\n", f1, iterations, 0);
   if (f1 == NULL)
